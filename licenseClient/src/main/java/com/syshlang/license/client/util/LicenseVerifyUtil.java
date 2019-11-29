@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. GRGBanking
+ * Copyright (c) 2019.
  * @File: LicenseVerifyUtil.java
  * @Description:
  * @Author: sunys

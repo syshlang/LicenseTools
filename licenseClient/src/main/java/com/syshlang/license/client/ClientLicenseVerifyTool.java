@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. GRGBanking
+ * Copyright (c) 2019.
  * @File: ServerCreateLicenseTool.java
  * @Description:
  * @Author: sunys
