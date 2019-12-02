@@ -17,6 +17,7 @@ import com.syshlang.license.common.util.SecurityUtils;
 import com.syshlang.license.common.util.ServerInfoUtils;
 import com.syshlang.license.common.vo.LicenseKeyStoreParam;
 import de.schlichtherle.license.*;
+import de.schlichtherle.xml.GenericCertificate;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.prefs.Preferences;
@@ -32,10 +33,8 @@ public class ClientLicenseManager extends LicenseManager {
         LicenseContent licenseContent;
         try {
             licenseContent = super.verify(licenseNotary);
-            LicenseConstant.CLIENT_LICENSE_LAST_UPDATE_DATE = System.currentTimeMillis();
-            LicenseConstant.CLIENT_LICENSE_VALID = true;
+            this.validate(licenseContent);
         } catch (Exception e) {
-            LicenseConstant.CLIENT_LICENSE_VALID = false;
             throw new LicenseContentException(e.getLocalizedMessage());
         }
         return licenseContent;
@@ -43,20 +42,25 @@ public class ClientLicenseManager extends LicenseManager {
 
     @Override
     protected synchronized void validate(LicenseContent licenseContent) throws LicenseContentException {
-        super.validate(licenseContent);
-        if (LicenseConstant.CLIENT_LICENSE_LAST_UPDATE_DATE > System.currentTimeMillis()){
-            throw new LicenseContentException(LicenseMessage.EXC_LICENSE_IS_NOT_YET_VALID);
-        }
-        String machineCodeReal = ServerInfoUtils.getMachineCode();
-        if(StringUtils.isBlank(machineCodeReal)){
-            throw new RuntimeException(LicenseMessage.EXC_NOT_MACHINE_INFO);
-        }
-        String  machineCode = (String) licenseContent.getExtra();
-        if(StringUtils.isBlank(machineCode)){
-            throw new LicenseContentException(LicenseMessage.EXC_LICENSE_IS_NOT_YET_VALID);
-        }
-        if (!machineCode.equals(machineCodeReal)){
-            throw new RuntimeException(LicenseMessage.EXC_MACHINE_NO_AUTHORIZATION);
+        GenericCertificate certificate = this.getCertificate();
+        if (null == certificate) {
+            super.validate(licenseContent);
+            if (LicenseConstant.CLIENT_LICENSE_LAST_UPDATE_DATE > System.currentTimeMillis()){
+                throw new LicenseContentException(LicenseMessage.EXC_LICENSE_IS_NOT_YET_VALID);
+            }
+            LicenseConstant.CLIENT_LICENSE_LAST_UPDATE_DATE = System.currentTimeMillis();
+            String machineCodeReal = ServerInfoUtils.getMachineCode();
+            if(StringUtils.isBlank(machineCodeReal)){
+                throw new RuntimeException(LicenseMessage.EXC_NOT_MACHINE_INFO);
+            }
+            String  machineCode = (String) licenseContent.getExtra();
+            if(StringUtils.isBlank(machineCode)){
+                throw new LicenseContentException(LicenseMessage.EXC_LICENSE_IS_NOT_YET_VALID);
+            }
+            if (!machineCode.contains(machineCodeReal)){
+                throw new RuntimeException(LicenseMessage.EXC_MACHINE_NO_AUTHORIZATION);
+            }
+            this.setCertificate(certificate);
         }
     }
 

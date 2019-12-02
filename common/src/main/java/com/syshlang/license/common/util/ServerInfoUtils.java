@@ -64,7 +64,7 @@ public class ServerInfoUtils {
         if (shell == null || shell.length ==0){
             return null;
         }
-        String result = "";
+        StringBuilder result = new StringBuilder();
         String osName = System.getProperty("os.name").toLowerCase();
         Process process = Runtime.getRuntime().exec(shell);
         process.getOutputStream().close();
@@ -74,18 +74,21 @@ public class ServerInfoUtils {
                 scanner.next();
             }
             if(scanner.hasNext()){
-                result = scanner.next().trim();
+                String next = scanner.next();
+                if (StringUtils.isNotEmpty(next)){
+                    result = new StringBuilder(next.replaceAll(" ",""));
+                }
             }
             scanner.close();
         }else {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line = reader.readLine().trim();
-            if(StringUtils.isNotBlank(line)){
-                result = line;
+            BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = input.readLine()) != null) {
+                result.append(line.replaceAll(" ",""));
             }
-            reader.close();
+            input.close();
         }
-        return result;
+        return result.toString();
     }
 
 

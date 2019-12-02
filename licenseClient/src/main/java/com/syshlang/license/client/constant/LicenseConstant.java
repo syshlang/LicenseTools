@@ -13,7 +13,6 @@ public class LicenseConstant {
     public static final String KEY_LICENSELASTUPDATEDATE = "GRGBANKING_KEY_LICENSELASTUPDATEDATE";
     public static long CLIENT_LICENSE_LAST_UPDATE_DATE;
 
-    public static boolean CLIENT_LICENSE_VALID = false;
 
     public final static String LICENSE_SUBJECT = "GRGBANKING_EBM_2_LICENSE";
     public final static String LICENSE_PUBLICALIAS = "GRGBANKING_EBM";
