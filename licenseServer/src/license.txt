@@ -1,0 +1,20 @@
+#生成命令
+keytool -genkeypair -keysize 1024 -validity 3650 -alias "GRGBANKING_EBM" -keystore "privateKeys.keystore" -storepass "12345A67" -keypass "12345A67" -dname "CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN"
+
+#导出命令
+keytool -exportcert -alias "GRGBANKING_EBM" -keystore "privateKeys.keystore" -storepass "12345A67" -file "certfile.cer"
+
+#导入命令
+keytool -import -alias "GRGBANKING_EBM" -file "certfile.cer" -keystore "publicCerts.keystore" -storepass "12345A67"
+
+
+
+
+
+首先要用KeyTool工具来生成私匙库：（-alias别名 –validity 3650表示10年有效）
+keytool -genkey -alias privatekey -keystore privateKeys.store -validity 3650
+然后把私匙库内的公匙导出到一个文件当中：
+keytool -export -alias privatekey -file certfile.cer -keystore privateKeys.store
+然后再把这个证书文件导入到公匙库：
+keytool -import -alias publiccert -file certfile.cer -keystore publicCerts.store
+最后生成文件privateKeys.store、publicCerts.store拷贝出来备用。
