@@ -1,11 +1,11 @@
 #生成命令
-keytool -genkeypair -keysize 1024 -validity 3650 -alias "GRGBANKING_EBM" -keystore "privateKeys.keystore" -storepass "12345A67" -keypass "12345A67" -dname "CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN"
+keytool -genkeypair -keysize 1024 -validity 3650 -alias "alias" -keystore "privateKeys.keystore" -storepass "12345A67" -keypass "12345A67" -dname "CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN"
 
 #导出命令
-keytool -exportcert -alias "GRGBANKING_EBM" -keystore "privateKeys.keystore" -storepass "12345A67" -file "certfile.cer"
+keytool -exportcert -alias "alias" -keystore "privateKeys.keystore" -storepass "12345A67" -file "certfile.cer"
 
 #导入命令
-keytool -import -alias "GRGBANKING_EBM" -file "certfile.cer" -keystore "publicCerts.keystore" -storepass "12345A67"
+keytool -import -alias "alias" -file "certfile.cer" -keystore "publicCerts.keystore" -storepass "12345A67"
 
 
 
