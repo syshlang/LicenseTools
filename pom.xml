@@ -24,6 +24,7 @@
         <truelicense.version>1.33</truelicense.version>
         <commons.version>3.9</commons.version>
         <jackson.version>2.10.0.pr3</jackson.version>
+        <javax.servlet.version>4.0.1</javax.servlet.version>
     </properties>
 
     <dependencyManagement>
@@ -32,6 +33,11 @@
                 <groupId>com.syshlang</groupId>
                 <artifactId>common</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.syshlang</groupId>
+                <artifactId>licenseClient</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -50,6 +56,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
