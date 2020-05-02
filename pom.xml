@@ -12,6 +12,7 @@
         <module>licenseServer</module>
         <module>licenseClient</module>
         <module>common</module>
+        <module>licenseWeb</module>
     </modules>
 
     <properties>
