@@ -24,7 +24,9 @@
         <truelicense.version>1.33</truelicense.version>
         <commons.version>3.9</commons.version>
         <jackson.version>2.10.0.pr3</jackson.version>
-        <javax.servlet.version>4.0.1</javax.servlet.version>
+        <jstl.version>1.2</jstl.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
+        <jsp-api.version>2.2</jsp-api.version>
     </properties>
 
     <dependencyManagement>
@@ -59,8 +61,19 @@
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet.version}</version>
+            <version>${servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>${jsp-api.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

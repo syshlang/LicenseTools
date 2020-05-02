@@ -13,6 +13,7 @@ package com.syshlang.license.client.util;
 import com.syshlang.license.client.constant.LicenseConstant;
 import com.syshlang.license.client.core.ClientLicenseManagerHolder;
 import de.schlichtherle.license.LicenseContent;
+import de.schlichtherle.license.LicenseContentException;
 import de.schlichtherle.license.LicenseManager;
 import java.io.File;
 import java.text.DateFormat;
@@ -37,17 +38,12 @@ public class LicenseVerifyUtil {
     }
 
 
-    public static synchronized LicenseContent clientLicenseVerify() {
-        try {
-            LicenseManager licenseManager = ClientLicenseManagerHolder.getInstance();
-            LicenseContent licenseContent = licenseManager.verify();
-            long timeMillis = System.currentTimeMillis();
-            //更新时间
-            return licenseContent;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public static synchronized LicenseContent clientLicenseVerify() throws Exception {
+        LicenseManager licenseManager = ClientLicenseManagerHolder.getInstance();
+        LicenseContent licenseContent = licenseManager.verify();
+        long timeMillis = System.currentTimeMillis();
+        //更新时间
+        return licenseContent;
     }
 
 }

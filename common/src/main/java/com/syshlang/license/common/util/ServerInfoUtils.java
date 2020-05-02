@@ -116,10 +116,9 @@ public class ServerInfoUtils {
             }
 
             return stringBuffer.toString().toUpperCase();
-        } catch (SocketException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

@@ -14,7 +14,7 @@ import com.syshlang.license.client.util.LicenseVerifyUtil;
 
 public class ClientLicenseVerifyTool {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws Exception {
         LicenseVerifyUtil.clientLicenseInstall();
         LicenseVerifyUtil.clientLicenseVerify();
     }

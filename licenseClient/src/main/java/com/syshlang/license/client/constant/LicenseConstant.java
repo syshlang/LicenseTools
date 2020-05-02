@@ -16,7 +16,7 @@ public class LicenseConstant {
 
     public final static String LICENSE_SUBJECT = "GRGBANKING_EBM_2_LICENSE";
     public final static String LICENSE_PUBLICALIAS = "GRGBANKING_EBM";
-    public final static String LICENSE_STOREPASS = "12345A67";
+    public final static String LICENSE_STOREPASS = "12345A6712345A67";
     public final static String LICENSE_PUBLICCERTSPATH = "C:/publicCerts.keystore";
     public final static String LICENSE_LICENSEPATH = "C:/license.lic";
 
