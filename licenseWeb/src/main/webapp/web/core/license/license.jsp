@@ -1,10 +1,11 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: sunys
-  Date: 2020/5/2
-  Time: 下午5:58
-  To change this template use File | Settings | File Templates.
---%>
+  ~ Copyright (c) 2020.
+  ~ @File: license.jsp
+  ~ @Description:
+  ~ @Author: sunys
+  ~ @Date: 2020/5/4 下午6:01
+  ~ @since:
+  --%>
 <%@ page isELIgnored="false"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2019.
- * @File: ServerCreateLicenseTool.java
+ * Copyright (c) 2020.
+ * @File: ClientLicenseVerifyTool.java
  * @Description:
  * @Author: sunys
- * @Date: 2019/11/21 下午3:19
+ * @Date: 2020/5/4 下午6:01
  * @since:
  */
 
