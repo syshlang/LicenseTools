@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2019.
+ * Copyright (c) 2020.
  * @File: LicenseCreateUtil.java
  * @Description:
  * @Author: sunys
- * @Date: 2019/11/29 下午4:06
+ * @Date: 2020/5/4 下午6:01
  * @since:
  */
 
