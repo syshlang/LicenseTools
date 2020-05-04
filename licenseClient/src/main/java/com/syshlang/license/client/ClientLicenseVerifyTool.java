@@ -12,6 +12,9 @@ package com.syshlang.license.client;
 
 import com.syshlang.license.client.util.LicenseVerifyUtil;
 
+/**
+ * @author sunys
+ */
 public class ClientLicenseVerifyTool {
 
     public static void main(String[] args) throws Exception {
