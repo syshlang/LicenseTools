@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2019.
+ * Copyright (c) 2020.
  * @File: LicenseMessage.java
  * @Description:
  * @Author: sunys
- * @Date: 2019/11/22 下午12:34
+ * @Date: 2020/5/4 下午6:01
  * @since:
  */
 

@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2019.
+ * Copyright (c) 2020.
  * @File: ClientLicenseManager.java
  * @Description:
  * @Author: sunys
- * @Date: 2019/11/20 下午8:14
+ * @Date: 2020/5/4 下午6:01
  * @since:
  */
 
