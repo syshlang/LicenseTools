@@ -13,7 +13,6 @@ package com.syshlang.license.client.core;
 import com.syshlang.license.client.constant.LicenseConstant;
 import com.syshlang.license.client.util.LicenseVerifyUtil;
 import com.syshlang.license.client.vo.LicenseVerifyParam;
-import com.syshlang.license.common.util.SecurityUtils;
 import com.syshlang.license.common.util.ServerInfoUtils;
 import com.syshlang.license.common.vo.LicenseKeyStoreParam;
 import de.schlichtherle.license.*;
@@ -73,8 +72,7 @@ public class ClientLicenseManager extends LicenseManager {
         licenseVerifyParam.setSubject(LicenseConstant.LICENSE_SUBJECT);
         licenseVerifyParam.setPublicAlias(LicenseConstant.LICENSE_PUBLICALIAS);
         if (StringUtils.isNotEmpty(LicenseConstant.LICENSE_STOREPASS)){
-            String decryptAES = SecurityUtils.decryptAES(LicenseConstant.LICENSE_STOREPASS, LicenseConstant.KEY_LICENSELASTUPDATEDATE);
-            licenseVerifyParam.setStorePass(decryptAES);
+            licenseVerifyParam.setStorePass(LicenseConstant.LICENSE_STOREPASS);
         }
         licenseVerifyParam.setLicensePath(LicenseConstant.LICENSE_LICENSEPATH);
         licenseVerifyParam.setPublicKeysStorePath(LicenseConstant.LICENSE_PUBLICCERTSPATH);
