@@ -11,6 +11,7 @@ package com.syshlang.license.server.util;
 
 
 
+import com.syshlang.license.common.util.SecurityUtils;
 import com.syshlang.license.common.vo.LicenseKeyStoreParam;
 import com.syshlang.license.server.constant.LicenseConstant;
 import com.syshlang.license.server.core.ServerLicenseManagerHolder;
@@ -136,6 +137,7 @@ public class LicenseCreateUtil {
             logger.info("请配置密钥密码！");
             return null;
         }
+        licenseKeypass = SecurityUtils.decryptAES(licenseKeypass);
         String licensePrivatekeysstorepath =  properties.getProperty("license.privatekeysstorepath");
         if (StringUtils.isEmpty(licenseSubject)){
             logger.info("请配置密钥库存储路径！");
@@ -146,6 +148,7 @@ public class LicenseCreateUtil {
             logger.info("请配置访问秘钥库的密码！");
             return null;
         }
+        licenseStorepass = SecurityUtils.decryptAES(licenseStorepass);
         String licenseIssuedtime =  properties.getProperty("license.issuedtime");
         if (StringUtils.isEmpty(licenseIssuedtime)){
             logger.info("请配置证书生效时间，格式： yyyy-MM-dd HH:mm:ss！");

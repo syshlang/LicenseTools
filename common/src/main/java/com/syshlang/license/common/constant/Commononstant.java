@@ -10,8 +10,11 @@
 
 package com.syshlang.license.common.constant;
 
-import javax.security.auth.x500.X500Principal;
 
+
+/**
+ * @author sunys
+ */
 public class Commononstant {
     public static final Integer KEYGENERATOR_KEYSIZE = 128; //密钥生成器 keysize
 }

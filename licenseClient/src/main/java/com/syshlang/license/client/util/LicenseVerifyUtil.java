@@ -12,9 +12,7 @@ package com.syshlang.license.client.util;
 
 import com.syshlang.license.client.constant.LicenseConstant;
 import com.syshlang.license.client.core.ClientLicenseManagerHolder;
-import com.syshlang.license.common.util.SecurityUtils;
 import de.schlichtherle.license.LicenseContent;
-import de.schlichtherle.license.LicenseContentException;
 import de.schlichtherle.license.LicenseManager;
 import java.io.File;
 import java.text.DateFormat;
