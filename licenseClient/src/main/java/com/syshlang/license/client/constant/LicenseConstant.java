@@ -38,15 +38,13 @@ public class LicenseConstant {
     private LicenseConstant() {
     }
 
-    public static final String KEY_LICENSELASTUPDATEDATE = "SYSHLANG_KEY_LICENSELASTUPDATEDATE";
     public static long CLIENT_LICENSE_LAST_UPDATE_DATE;
 
 
     public final static String LICENSE_SUBJECT = properties.getProperty("license.subject");
     public final static String LICENSE_PUBLICALIAS = properties.getProperty("license.publicalias");
-    public final static String LICENSE_STOREPASS = properties.getProperty("license.storepass");
-    public final static String LICENSE_PUBLICCERTSPATH = Thread.currentThread().getContextClassLoader().getResource(
-            "/").getPath()+"certs"+ File.separator+"public.keystore";
+    public final static String LICENSE_STOREPASS = SecurityUtils.decryptAES(properties.getProperty("license.storepass"));
+    public final static String LICENSE_PUBLICCERTSPATH = Thread.currentThread().getContextClassLoader().getResource("/").getPath()+"certs"+ File.separator+"publicCerts.keystore";
     public final static String LICENSE_LICENSEPATH = properties.getProperty("license.licensepath");
 
 }
