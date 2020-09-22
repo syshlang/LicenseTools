@@ -46,7 +46,6 @@ public class LicenseFilter implements Filter {
             try {
                 licenseContent = LicenseVerifyUtil.clientLicenseVerify();
             } catch (Exception e) {
-                e.printStackTrace();
                 httpRequest.setAttribute("errormsg",e.getMessage());
                 log.debug("Certificate verification failed："+e.getMessage());
             }
