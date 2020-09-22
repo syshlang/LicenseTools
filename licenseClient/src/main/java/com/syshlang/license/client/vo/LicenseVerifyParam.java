@@ -9,6 +9,9 @@
 
 package com.syshlang.license.client.vo;
 
+/**
+ * @author sunys
+ */
 public class LicenseVerifyParam {
     /**
      * 证书subject

@@ -12,6 +12,7 @@ package com.syshlang.license.client.util;
 
 import com.syshlang.license.client.constant.LicenseConstant;
 import com.syshlang.license.client.core.ClientLicenseManagerHolder;
+import com.syshlang.license.common.util.SecurityUtils;
 import de.schlichtherle.license.LicenseContent;
 import de.schlichtherle.license.LicenseContentException;
 import de.schlichtherle.license.LicenseManager;
@@ -21,9 +22,11 @@ import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
 
+/**
+ * @author sunys
+ */
 public class LicenseVerifyUtil {
     private static Logger logger = Logger.getLogger(LicenseVerifyUtil.class.getName());
-    private static final String PARAM_CONFIG_KEY_LICENSELASTUPDATEDATE = "LICENSELASTUPDATEDATE";
 
     public static synchronized void clientLicenseInstall(){
         try{
@@ -41,8 +44,8 @@ public class LicenseVerifyUtil {
     public static synchronized LicenseContent clientLicenseVerify() throws Exception {
         LicenseManager licenseManager = ClientLicenseManagerHolder.getInstance();
         LicenseContent licenseContent = licenseManager.verify();
-        long timeMillis = System.currentTimeMillis();
-        //更新时间
+        //更新时间, 可以将最后一次的更新时间保存，防止用户通过篡改服务器时间来绕过有效期校验
+        LicenseConstant.CLIENT_LICENSE_LAST_UPDATE_DATE = System.currentTimeMillis();
         return licenseContent;
     }
 
