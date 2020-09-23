@@ -11,6 +11,9 @@ package com.syshlang.license.client.core;
 
 import de.schlichtherle.util.ObfuscatedString;
 
+/**
+ * @author sunys
+ */
 public class LicenseMessage {
     public static final String EXC_NOT_MACHINE_INFO = "Invalid machine info!";
     public static final String EXC_MACHINE_NO_AUTHORIZATION = "The machine is not authorized!";
