@@ -30,7 +30,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
 
-        <spring-version>5.1.5.RELEASE</spring-version>
+        <spring-version>5.1.14.RELEASE</spring-version>
         <truelicense.version>1.33</truelicense.version>
         <commons.version>3.9</commons.version>
         <jackson.version>2.10.0.pr3</jackson.version>
